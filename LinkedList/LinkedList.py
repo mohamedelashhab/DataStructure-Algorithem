@@ -86,6 +86,28 @@ class LinkedList:
             current = current._Node__next
         return arr
 
+    # [10 <- 20 -> 30 -> 40 -> 50 ]
+    #        p    c     n
+    def reverse(self):
+        current = self.__first._Node__next
+        previous = self.__first
+        while current != None:
+            next = current._Node__next
+            current._Node__next = previous
+            previous = current
+            current = next
+
+        temp = self.__first
+        self.__first = self.__last
+        self.__last = temp
+        self.__last._Node__next = None
+
+
+
+
+
+
+
 
     def __isEmpty(self):
         return self.__first is None
