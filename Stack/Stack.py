@@ -18,7 +18,7 @@ class Stack(object):
     def isEmpty(self):
         return self.__size == 0
 
-    def peak(self):
+    def peek(self):
         return self.__items[self.__top]
 
     def toArray(self):
