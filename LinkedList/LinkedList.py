@@ -45,7 +45,7 @@ class LinkedList:
 
     def removeFirst(self):
         if self.__isEmpty():
-            raise IndexError
+            raise BufferError
 
 
         if self.__first == self.__last:
@@ -59,7 +59,7 @@ class LinkedList:
 
     def removeLast(self):
         if self.__isEmpty():
-            raise IndexError
+            raise BufferError
 
         if self.__first == self.__last:
             self.__first = self.__last = None

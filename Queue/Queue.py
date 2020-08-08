@@ -7,16 +7,14 @@ class Queue(object):
         self.__length = length
 
     def enqueue(self, value):
-        if self.__size >= self.__length:
-            raise OverflowError
-
+        if self.isFull():raise BufferError
         self.__items[self.__rear] = value
         self.__rear = (self.__rear + 1) % self.__length
         self.__size += 1
 
 
     def dequeue(self):
-        if self.isEmpty(): raise ValueError
+        if self.isEmpty(): raise BufferError
 
         self.__items[self.__front] = 0
         self.__front = (self.__front + 1) % self.__length
@@ -33,4 +31,11 @@ class Queue(object):
         return self.__items[self.__rear]
 
     def toArray(self):
-        return self.__items
+        items = []
+        while self.__front != self.__rear:
+            items.append(self.__items[self.__front])
+            self.__front = (self.__front + 1) % self.__length
+        return items
+
+    def isFull(self):
+        return self.__length == self.__size
