@@ -1,4 +1,4 @@
-from Queue import Queue
+from Queuee import Queue
 
 if __name__ == '__main__':
     queue = Queue(10)
